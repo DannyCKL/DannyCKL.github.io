@@ -1,1 +1,91 @@
-<h1>Test</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Scores Dashboard</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="table">
+        <section class="header">
+            <h1>聖誕聚餐&nbsp;&nbsp;遊戲計分板</h1>
+            <nav class="circle-menu">
+                <a href="index.html" class="menu-item"><i class='bx bx-medal'></i></a>
+                <a href="scoreboard.html" class="menu-item"><i class='bx bxs-dashboard'></i></a>
+                <button class="menu-toggle"><i class='bx bx-menu'></i></button>
+            </nav>
+        </section>
+        <section class="shell">
+            <table>
+                <thead>
+                    <tr>
+                        <th>名次</th>
+                        <th>隊伍名</th>
+                        <th>分數</th>
+                        <th>狀態</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td id="team1">
+                            隊伍 1
+                            <button class="icon-button"><i class="bx bx-pencil fa fa-home"></i></button>
+                        </td>
+                        <td class="scores">100</td>
+                        <td>
+                            <p class="button">遙遙領先</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>隊伍 2</td>
+                        <td class="scores">100</td>
+                        <td>
+                            <p class="button">緊追不捨</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>隊伍 3</td>
+                        <td class="scores">100</td>
+                        <td>
+                            <p class="button">機不可失</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>004</td>
+                        <td>隊伍 4</td>
+                        <td class="scores">100</td>
+                        <td>
+                            <p class="button">臥薪嘗膽</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>005</td>
+                        <td>隊伍 5</td>
+                        <td class="scores">100</td>
+                        <td>
+                            <p class="button">破釜沈舟</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>006</td>
+                        <td>隊伍 6</td>
+                        <td class="scores">100</td>
+                        <td>
+                            <p class="button">背水一戰</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
