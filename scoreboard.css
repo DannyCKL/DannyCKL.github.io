@@ -27,7 +27,8 @@ main.table {
 
 .header {
     width: 100%;
-    height: 10%;
+    /* height: 10%; */
+    flex: 0 0 10%;
     background-color: #fff4;
     padding: 0 40px;
     display: flex;
@@ -106,7 +107,7 @@ main.table {
 .shell {
     width: 95%;
     height: 100%;
-    padding: 24px;
+    /* padding: 8px; */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -151,6 +152,8 @@ main.table {
 }
 
 .team-container h2 {
+    width: 10%;
+    text-align: center;
     margin-right: 24px;
 }
 
