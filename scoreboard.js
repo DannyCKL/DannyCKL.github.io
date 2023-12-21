@@ -39,51 +39,74 @@ document.addEventListener("DOMContentLoaded", function () {
     panel.appendChild(resetButton);
     resetButton.addEventListener("click", reset);
 
-    let scores = localStorage.getItem("scores");
-    if (scores) {
-        scores = JSON.parse(scores);
-        const cells = document.getElementsByTagName("input");
+    // let scores = localStorage.getItem("scores");
+    // if (scores) {
+    //     scores = JSON.parse(scores);
+    //     const cells = document.getElementsByTagName("input");
+    //     for (let i = 0; i < 6; i++) {
+    //         for (let j = 0; j < 8; j++) {
+    //             if (scores[i][j]) {
+    //                 cells[i * 8 + j].value = scores[i][j];
+    //             }
+    //         }
+    //     }
+    // }
+    read();
+})
+
+function read() {
+    let data = localStorage.getItem("data");
+    if (data) {
+        const names = document.getElementsByTagName("h2");
+        const scores = document.getElementsByTagName("input");
+        data = JSON.parse(data);
         for (let i = 0; i < 6; i++) {
+            names[i].innerHTML = data[i].name;
             for (let j = 0; j < 8; j++) {
-                if (scores[i][j]) {
-                    cells[i * 8 + j].value = scores[i][j];
+                if (data[i].scores[j] >= 0) {
+                    scores[i * 8 + j].value = data[i].scores[j];
                 }
             }
         }
     }
-    update();
-})
+}
 
 function update() {
-    const scores = document.getElementsByTagName("input");
-    let data = [];
-    for (let i = 0; i < 6; i++) {
-        let datum = [];
-        let sum = 0;
-        for (let j = 0; j < 8; j++) {
-            let scoreValue = parseInt(scores[i * 8 + j].value || "0", 10);
-            datum.push(scoreValue);
-            sum += scoreValue;
-            if (j === 7) {
-                datum.push(sum);
+    let data = localStorage.getItem("data");
+    if (data) {
+        const scores = document.getElementsByTagName("input");
+        data = JSON.parse(data);
+        for (let i = 0; i < 6; i++) {
+            let sum = 0;
+            for (let j = 0; j < 8; j++) {
+                if (scores[i * 8 + j].value) {
+                    data[i].scores[j] = parseInt(scores[i * 8 + j].value);
+                    sum += parseInt(scores[i * 8 + j].value);
+                } else {
+                    data[i].scores[j] = -1;
+                }
             }
+            data[i].scores[8] = sum + 100;
         }
-        data.push(datum);
     }
-    try {
-        data = JSON.stringify(data);
-        localStorage.setItem("scores", data);
-    } catch (e) {
-        console.error("Failed to stringify or save data to localStorage:", e);
-    }
+    data.sort((a, b) => {
+        const lastScoreA = a.scores[a.scores.length - 1];
+        const lastScoreB = b.scores[b.scores.length - 1];
+        return lastScoreB - lastScoreA;
+    });
+    data = JSON.stringify(data);
+    localStorage.setItem("data", data);
 }
 
 function reset() {
     if (window.confirm("Are you sure to reset the data?")) {
-        const scores = document.getElementsByTagName("input");
-        for (let i = 0; i < 6; i++) {
-            for (let j = 0; j < 8; j++) {
-                scores[i * 8 + j].value = "";
+        let data = localStorage.getItem("data");
+        if (data) {
+            const scores = document.getElementsByTagName("input");
+            for (let i = 0; i < 6; i++) {
+                for (let j = 0; j < 8; j++) {
+                    scores[i * 8 + j].value = "";
+                }
             }
         }
         update();
@@ -102,3 +125,4 @@ setInterval(function () {
         }
     }
 }, 1000)
+
