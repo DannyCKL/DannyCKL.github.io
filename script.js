@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             data.push(team);
         }
         localStorage.setItem("data", JSON.stringify(data));
+        graph(data);
     }
 
     function rename(event) {
