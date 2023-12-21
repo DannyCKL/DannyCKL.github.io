@@ -35,7 +35,7 @@ main.table {
     width: 95%;
     max-height: calc(90% - 25px);
     background-color: #fffb;
-    margin: 8px auto;
+    margin: 24px auto;
     border-radius: 10px;
     overflow: auto;
     overflow: overlay;
@@ -65,7 +65,7 @@ td {
     border-collapse: collapse;
     padding: 20px;
     text-align: center;
-    font-size: large;
+    font-size: x-large;
 }
 
 thead th {
@@ -99,10 +99,12 @@ tr:nth-child(2) .button {
 
 tr:nth-child(3) .button {
     background-color: #6fcaea;
+    color: #0781ad
 }
 
 tr:nth-child(4) .button {
     background-color: #ebc474;
+    color: #b47905;
 }
 
 tr:nth-child(5) .button,
@@ -200,4 +202,20 @@ tr:nth-child(6) .button {
 
 .menu-item:not(:hover) {
     transition-delay: 0.1s;
+}
+
+input {
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+input:focus {
+    width: 50%;
 }
