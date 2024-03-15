@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game1.css">
+    <title>Service Learning - Game 1</title>
+</head>
+
+<body>
+    <div class="card">
+        <div class="container">
+            <h1>請分辨以下句子是否自我介紹的重要性</h1>
+            <p id="score">分數: <span id="scoreValue">0</span></p>
+
+            <div id="questionContainer">
+                <p id="sentence" draggable="true"></p>
+            </div>
+
+            <div id="answerContainer">
+                <div id="trueBox" class="box">是</div>
+                <div id="falseBox" class="box">否</div>
+            </div>
+
+            <button id="nextButton">下一題</button>
+        </div>
+    </div>
+    <script src="data1.js"></script>
+    <script src="game1.js"></script>
+</body>
+
+</html>

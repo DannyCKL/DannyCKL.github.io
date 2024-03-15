@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Learning - Game 3</title>
+    <link rel="stylesheet" href="game3.css">
+</head>
+
+<body>
+    <div class="messages">
+        <h1>留言板</h1>
+        <form id="form">
+            <div class="field">
+                <input type="text" id="username" placeholder="用户名">
+                <input type="text" name="message" id="message" placeholder="留言内容">
+                <input type="submit" id="button" value="留言"></input>
+            </div>
+        </form>
+        <div id="messageBoard"></div>
+    </div>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">emailjs.init('A28QwM9G9kcWKpbF2')</script>
+<script src="game3.js"></script>
+
+</html>
